@@ -1,0 +1,32 @@
+# netlify.toml
+
+# Build settings
+[build]
+  # This tells Netlify to build the React app in portal/
+  command = "cd portal && npm install && npm run build"
+  # The portal build output goes to portal/build
+  publish = "public"
+  # Functions directory for Netlify Functions (optional for now)
+  functions = "netlify/functions"
+
+# Redirect rules
+[[redirects]]
+  # Serve portal React app
+  from = "/portal/*"
+  to = "/portal/index.html"
+  status = 200
+
+[[redirects]]
+  # API proxy (when you add Netlify Functions later)
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

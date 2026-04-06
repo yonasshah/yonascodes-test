@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YonasCodes — Web Development & Design | Philadelphia</title>
+<meta name="description" content="Custom Full-Stack Web Development in Philadelphia. Specializing in Django, Python, and high-performance business websites.">
+<meta property="og:title" content="YonasCodes | Custom Web Development">
+<meta property="og:description" content="High-performance websites and custom business logic built with Python and Django.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yonascodes.com">
+<meta property="og:image" content="https://yonascodes.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="YonasCodes | Custom Web Development">
+<meta name="twitter:description" content="High-performance websites and custom business logic built with Python and Django.">
+<meta name="twitter:image" content="https://yonascodes.com/og-image.png">
+<meta name="author" content="Yonas">
+<meta name="theme-color" content="#0c1929">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0e16'/%3E%3Crect x='1' y='1' width='30' height='30' rx='5' fill='none' stroke='white' stroke-width='2'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Arial,sans-serif' font-weight='800' font-size='14' fill='white'%3EYC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-100: #dbeafe;
+  --blue-50: #eff6ff;
+  --teal-600: #0d9488;
+  --teal-500: #14b8a6;
+  --teal-400: #2dd4bf;
+  --teal-100: #ccfbf1;
+  --teal-50: #f0fdfa;
+  --sky-500: #0ea5e9;
+  --sky-50: #f0f9ff;
+
+  --ink: #0c0e16;
+  --gray-900: #141620;
+  --gray-800: #272a33;
+  --gray-600: #4a4e5a;
+  --gray-500: #6e727e;
+  --gray-400: #9ea1ab;
+  --gray-300: #c5c7cd;
+  --gray-200: #dfe0e4;
+  --gray-100: #eeeff1;
+  --gray-50: #f5f5f6;
+  --white: #ffffff;
+  --bg: #fafafa;
+
+  --mono: 'JetBrains Mono', monospace;
+  --sans: 'Outfit', sans-serif;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --hero-bg: linear-gradient(135deg, #0c1929 0%, #0f2338 40%, #0a1628 100%);
+  --hero-text: white;
+  --hero-sub: rgba(255,255,255,0.6);
+  --svc-bg: var(--blue-50);
+  --svc-card-bg: var(--white);
+  --svc-card-hover: var(--white);
+  --proc-bg: var(--teal-50);
+  --work-bg: var(--white);
+  --about-bg: var(--sky-50);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--gray-800);line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--blue-500);color:white}
+
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(12,25,41,0.95);backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  box-shadow:0 4px 20px rgba(0,0,0,0.1);
+}
+nav .w{
+  max-width:1200px;margin:0 auto;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;height:64px;
+}
+.logo{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.85rem;
+  color:white;text-decoration:none;letter-spacing:-0.04em;
+  display:flex;align-items:center;position:relative;
+}
+.logo::after{
+  content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--blue-400),var(--teal-400));
+  transition:width 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.logo:hover::after{width:100%}
+.logo .logo-accent{color:var(--blue-400)}
+.nav-r{display:flex;align-items:center;gap:32px}
+.nav-r a{
+  text-decoration:none;color:rgba(255,255,255,0.65);
+  font-size:0.88rem;font-weight:600;
+  position:relative;padding:8px 0;
+  transition:color 0.2s;
+}
+.nav-r a::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:100%;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--blue-400),var(--teal-400));
+  transform:scaleX(0);transform-origin:center;
+  transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.nav-r a:hover{color:white}
+.nav-r a:hover::after{transform:scaleX(1)}
+.nav-r a.active{color:white}
+.nav-r a.active::after{transform:scaleX(1)}
+.nav-btn::after{display:none}
+.nav-btn{
+  background:linear-gradient(135deg,#3b82f6,#14b8a6)!important;
+  color:white!important;
+  padding:9px 20px!important;
+  border-radius:8px!important;
+  font-weight:600!important;
+  font-size:0.85rem!important;
+  transition:all 0.2s cubic-bezier(0.4,0,0.2,1)!important;
+  box-shadow:0 2px 8px rgba(59,130,246,0.25)!important;
+  border:none!important;
+  position:relative!important;
+}
+.nav-btn:hover{
+  transform:translateY(-1px)!important;
+  box-shadow:0 4px 20px rgba(59,130,246,0.5), 0 0 30px rgba(20,184,166,0.3)!important;
+  filter:brightness(1.1)!important;
+}
+
+/* Mobile toggle */
+.mob-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;position:relative;width:32px;height:32px}
+.mob-toggle span{display:block;width:20px;height:1.5px;background:white;position:absolute;left:6px;transition:all 0.3s}
+.mob-toggle span:nth-child(1){top:8px}
+.mob-toggle span:nth-child(2){top:15px}
+.mob-toggle span:nth-child(3){top:22px}
+.mob-toggle.open span:nth-child(1){top:15px;transform:rotate(45deg)}
+.mob-toggle.open span:nth-child(2){opacity:0}
+.mob-toggle.open span:nth-child(3){top:15px;transform:rotate(-45deg)}
+
+/* Mobile menu */
+.mob-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;
+  background:rgba(12,25,41,0.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding:20px 40px 28px;
+  flex-direction:column;gap:6px;
+  transform:translateY(-10px);opacity:0;
+  transition:transform 0.3s,opacity 0.3s;
+  z-index:99;
+}
+.mob-menu.open{display:flex;transform:translateY(0);opacity:1}
+.mob-menu a{
+  text-decoration:none;color:rgba(255,255,255,0.7);
+  font-size:1rem;font-weight:500;padding:14px 16px;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  transition:all 0.2s;
+  border-radius:8px;
+  display:flex;align-items:center;gap:12px;
+}
+.mob-menu a::before{
+  content:'→';
+  color:var(--blue-400);
+  font-weight:700;
+  opacity:0;
+  transition:opacity 0.2s;
+}
+.mob-menu a:hover::before{opacity:1}
+.mob-menu a:last-child{border-bottom:none}
+.mob-menu a:hover{
+  color:white;
+  background:rgba(255,255,255,0.05);
+}
+.mob-menu a.active{
+  color:white;
+  background:rgba(255,255,255,0.08);
+  border-color:rgba(96,165,250,0.2);
+}
+.mob-menu a.active::before{
+  opacity:1;
+}
+.mob-menu .mob-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:12px;padding:14px 28px;border-radius:10px;
+  background:linear-gradient(135deg,var(--blue-500),var(--teal-500));
+  color:white;font-weight:600;
+  border:none;font-size:0.95rem;
+  box-shadow:0 4px 16px rgba(59,130,246,0.3);
+}
+.mob-menu .mob-cta::before{display:none}
+
+/* ─── HERO ─── */
+.hero{
+  padding:90px 0 50px;position:relative;overflow:hidden;
+  background:var(--hero-bg);
+}
+.hero::before{
+  content:'';position:absolute;top:10%;right:0;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(37,99,235,0.15),transparent 60%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:10%;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(13,148,136,0.1),transparent 60%);
+  pointer-events:none;
+}
+.hero .w{
+  max-width:1200px;margin:0 auto;padding:0 40px;position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 16px 7px 10px;border-radius:24px;margin-bottom:20px;
+  font-size:0.78rem;font-weight:600;
+  background:rgba(13,148,136,0.15);color:var(--teal-400);
+  border:1px solid rgba(13,148,136,0.25);
+}
+.hero-dot{width:8px;height:8px;background:var(--teal-500);border-radius:50%;animation:pulse 2.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero h1{
+  font-size:clamp(3rem,6vw,5.2rem);font-weight:900;
+  line-height:0.98;letter-spacing:-0.045em;
+  color:var(--hero-text);margin-bottom:18px;max-width:780px;
+}
+.hero h1 .grad{
+  background:linear-gradient(135deg,var(--blue-500),var(--teal-500));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-desc{
+  font-size:1.08rem;color:var(--hero-sub);max-width:520px;
+  line-height:1.75;margin-bottom:28px;font-weight:400;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;justify-content:center}
+.btn-blue{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#3b82f6,#14b8a6);
+  color:white;padding:15px 34px;
+  border-radius:10px;font-size:0.9rem;font-weight:600;
+  text-decoration:none;
+  transition:all 0.2s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:0 2px 8px rgba(59,130,246,0.25);
+}
+.btn-blue:hover{
+  transform:translateY(-1px);
+  box-shadow:0 4px 20px rgba(59,130,246,0.5), 0 0 30px rgba(20,184,166,0.3);
+  filter:brightness(1.1);
+}
+.btn-light{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:15px 34px;border-radius:var(--radius);
+  font-size:0.9rem;font-weight:500;text-decoration:none;
+  background:rgba(255,255,255,0.06);color:white;
+  border:1.5px solid rgba(255,255,255,0.12);transition:all 0.3s;
+}
+.btn-light:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2)}
+
+/* Hero stats */
+.hero-stats{
+  display:flex;gap:0;border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;overflow:hidden;max-width:580px;
+}
+.h-stat{
+  flex:1;padding:18px 24px;
+  border-right:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.04);text-align:left;
+}
+.h-stat:last-child{border-right:none}
+.h-stat .num{
+  font-size:1.6rem;font-weight:800;letter-spacing:-0.03em;
+  color:var(--blue-400);line-height:1;
+}
+.h-stat .num span{
+  font-family:var(--mono);font-size:0.65rem;font-weight:600;
+  color:var(--teal-500);vertical-align:super;margin-left:2px;
+}
+.h-stat .lbl{font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:6px;font-weight:500}
+
+/* ─── SECTION SHARED ─── */
+.stag{
+  font-family:var(--mono);font-size:0.72rem;
+  font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  margin-bottom:14px;
+  background:linear-gradient(135deg,var(--blue-600),var(--teal-600));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.sh{
+  font-size:clamp(2.4rem,4vw,3.4rem);font-weight:900;
+  letter-spacing:-0.04em;line-height:1.08;color:var(--ink);margin-bottom:14px;
+}
+.sp{font-size:1.05rem;color:var(--gray-500);max-width:520px;line-height:1.75;margin-bottom:40px}
+
+/* ─── ACCESSIBILITY FOCUS STATES ─── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.stack-card:focus-visible{
+  outline:3px solid var(--blue-400);
+  outline-offset:2px;
+  border-radius:4px;
+}
+.nav-r a:focus-visible{
+  outline-color:white;
+  background:rgba(255,255,255,0.1);
+  padding:4px 8px;
+  margin:-4px -8px;
+}
+
+/* ─── SERVICES ─── */
+.services{padding:70px 0;background:var(--svc-bg)}
+.services .w{max-width:1200px;margin:0 auto;padding:0 40px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-tags{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.svc-tag{
+  font-family:var(--mono);font-size:0.74rem;font-weight:700;
+  padding:9px 20px;border-radius:8px;
+  background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(13,148,136,0.08));
+  color:var(--blue-600);border:1px solid rgba(37,99,235,0.15);
+  transition:all 0.2s;
+  cursor:default;
+}
+.svc-tag:hover{
+  background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(13,148,136,0.12));
+  border-color:rgba(37,99,235,0.25);
+  transform:translateY(-1px);
+}
+.svc{
+  background:var(--svc-card-bg);border:1px solid var(--gray-200);
+  border-radius:var(--radius-lg);padding:28px 24px;
+  transition:all 0.35s;position:relative;overflow:hidden;
+}
+.svc:hover{
+  background:var(--svc-card-hover);
+  box-shadow:0 8px 30px rgba(37,99,235,0.08);
+  transform:translateY(-3px);border-color:var(--blue-100);
+}
+.svc::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue-500),var(--teal-500));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
+}
+.svc:hover::after{transform:scaleX(1)}
+.svc-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;margin-bottom:14px;
+  transition:transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.svc:hover .svc-icon{
+  transform:scale(1.1) rotate(5deg);
+}
+.si-blue{background:var(--blue-50);border:1px solid var(--blue-100)}
+.si-teal{background:var(--teal-50);border:1px solid var(--teal-100)}
+.si-sky{background:var(--sky-50);border:1px solid rgba(14,165,233,0.15)}
+.svc h3{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.svc p{font-size:0.8rem;color:var(--gray-500);line-height:1.7}
+
+/* ─── PROCESS ─── */
+.process{padding:70px 0;background:var(--proc-bg)}
+.process .w{max-width:1200px;margin:0 auto;padding:0 40px}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.proc{
+  padding:32px 26px;position:relative;
+  border-right:1px solid rgba(13,148,136,0.12);
+  transition:all 0.3s;
+}
+.proc:last-child{border-right:none}
+.proc:hover{
+  background:rgba(13,148,136,0.03);
+  transform:translateY(-2px);
+}
+.proc-num{
+  font-family:var(--mono);font-size:2.6rem;font-weight:700;
+  line-height:1;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--blue-400),var(--teal-400));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  opacity:0.35;
+  transition:opacity 0.3s;
+}
+.proc:hover .proc-num{opacity:0.8}
+.proc h4{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.proc-time{
+  font-family:var(--mono);font-size:0.72rem;
+  color:var(--teal-600);font-weight:600;
+  margin-bottom:10px;display:inline-block;
+  background:rgba(13,148,136,0.08);
+  padding:4px 10px;border-radius:4px;
+}
+.proc p{font-size:0.82rem;color:var(--gray-500);line-height:1.7}
+
+/* ─── PACKAGES / TECH STACK ─── */
+.stack{padding:70px 0;background:var(--work-bg)}
+.stack .w{max-width:1200px;margin:0 auto;padding:0 40px}
+.stack-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.stack-card{
+  background:var(--gray-50);border:1px solid var(--gray-200);
+  border-radius:var(--radius-lg);padding:24px 22px;
+  transition:all 0.35s;position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.stack-card:hover{
+  background:var(--white);border-color:var(--blue-100);
+  box-shadow:0 12px 40px rgba(37,99,235,0.12);transform:translateY(-4px);
+}
+.stack-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue-500),var(--teal-500));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.4s;
+}
+.stack-card:hover::after{transform:scaleX(1)}
+.stack-card[data-package="Small Business Website ($800)"]{
+  background:linear-gradient(135deg,rgba(59,130,246,0.03),rgba(20,184,166,0.02));
+  border:2px solid var(--blue-400);
+  box-shadow:0 8px 32px rgba(59,130,246,0.15);
+}
+.stack-card[data-package="Small Business Website ($800)"]::before{
+  content:'MOST POPULAR';
+  position:absolute;top:16px;right:-32px;
+  background:linear-gradient(135deg,var(--blue-500),var(--teal-500));
+  color:white;padding:4px 40px;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.08em;
+  transform:rotate(45deg);
+  box-shadow:0 2px 8px rgba(59,130,246,0.3);
+}
+.sc-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sc-icon{
+  width:42px;height:42px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+  transition:transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.stack-card:hover .sc-icon{
+  transform:scale(1.15) rotate(-5deg);
+}
+.sc-icon.si-b{background:var(--blue-50);border:1px solid var(--blue-100)}
+.sc-icon.si-t{background:var(--teal-50);border:1px solid var(--teal-100)}
+.sc-icon.si-s{background:var(--sky-50);border:1px solid rgba(14,165,233,0.15)}
+.sc-name{font-size:0.98rem;font-weight:800;color:var(--ink);letter-spacing:-0.02em}
+.sc-name span{font-family:var(--mono);font-size:0.68rem;font-weight:600;color:var(--gray-400);display:block;margin-top:3px;letter-spacing:0.02em}
+.sc-price{
+  font-size:2.4rem;font-weight:900;color:var(--blue-600);
+  line-height:1;margin:14px 0 12px;
+  letter-spacing:-0.03em;
+}
+.sc-price-label{
+  font-size:0.7rem;color:var(--gray-400);font-weight:600;
+  text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;
+}
+.stack-card p{font-size:0.84rem;color:var(--gray-500);line-height:1.7;margin-bottom:16px}
+.sc-biz{
+  padding-top:14px;border-top:1px solid var(--gray-200);
+  font-size:0.78rem;color:var(--blue-600);font-weight:600;
+  display:flex;align-items:center;gap:6px;
+  cursor:pointer;
+  transition:color 0.2s;
+}
+.sc-biz::before{content:'→';font-size:0.7rem;transition:transform 0.2s}
+.sc-biz:hover{color:var(--blue-500)}
+.stack-card.expanded .sc-biz::before{transform:rotate(90deg)}
+.sc-details{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.4s ease;
+  margin:0 -22px;
+  padding:0 22px;
+}
+.stack-card.expanded .sc-details{
+  max-height:500px;
+  padding:14px 22px 0;
+}
+.sc-details ul{
+  list-style:none;
+  padding:0;
+  margin:8px 0 0;
+}
+.sc-details li{
+  font-size:0.8rem;
+  color:var(--gray-600);
+  padding:6px 0;
+  padding-left:20px;
+  position:relative;
+}
+.sc-details li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  color:var(--teal-500);
+  font-weight:700;
+}
+
+/* ─── CTA SECTION ─── */
+.cta-section{
+  padding:70px 0;
+  background:linear-gradient(180deg, var(--white) 0%, #f8f9fa 100%);
+  position:relative;
+}
+.cta-section .w{max-width:900px;margin:0 auto;padding:0 40px}
+.cta-box{
+  background:linear-gradient(135deg, #0a1628 0%, #0d1a2e 40%, #111827 100%);
+  border-radius:28px;padding:56px 52px;text-align:center;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(96,165,250,0.12);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.05) inset,
+    0 -2px 40px rgba(59,130,246,0.08) inset;
+}
+.cta-box::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:700px;height:700px;
+  background:radial-gradient(circle at center,rgba(59,130,246,0.22),rgba(37,99,235,0.08) 40%,transparent 70%);
+  pointer-events:none;filter:blur(40px);
+}
+.cta-box::after{
+  content:'';position:absolute;bottom:-150px;left:-150px;
+  width:600px;height:600px;
+  background:radial-gradient(circle at center,rgba(20,184,166,0.16),rgba(13,148,136,0.06) 40%,transparent 70%);
+  pointer-events:none;filter:blur(40px);
+}
+.cta-grid{
+  display:grid;grid-template-columns:1fr;gap:44px;position:relative;z-index:2;
+}
+.cta-content{max-width:640px;margin:0 auto}
+.cta-box h2{
+  font-size:clamp(2.4rem,4vw,3.6rem);
+  font-weight:900;
+  letter-spacing:-0.045em;
+  color:white;
+  margin-bottom:18px;
+  line-height:1.08;
+  text-shadow:0 2px 20px rgba(0,0,0,0.3);
+}
+.cta-box h2 .gradient-text{
+  background:linear-gradient(135deg,#60a5fa 0%,#3b82f6 30%,#2dd4bf 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  position:relative;
+}
+.cta-box p{
+  font-size:1.12rem;
+  color:rgba(255,255,255,0.72);
+  max-width:560px;
+  margin:0 auto 40px;
+  line-height:1.8;
+  font-weight:400;
+}
+.cta-actions{
+  display:flex;gap:14px;justify-content:center;
+  align-items:center;flex-wrap:wrap;margin-bottom:44px;
+}
+.cta-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(96,165,250,0.1);
+  backdrop-filter:blur(20px);
+  border:1.5px solid rgba(96,165,250,0.3);
+  color:white;
+  padding:16px 40px;
+  border-radius:12px;
+  font-size:1rem;
+  font-weight:700;
+  text-decoration:none;
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:
+    0 4px 20px rgba(59,130,246,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+  position:relative;
+  overflow:hidden;
+}
+.cta-primary::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(96,165,250,0.2),rgba(45,212,191,0.15));
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.cta-primary:hover::before{
+  opacity:1;
+}
+.cta-primary span{
+  display:inline-block;
+  position:relative;
+  z-index:1;
+}
+.cta-primary svg{
+  transition:transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+  z-index:1;
+}
+.cta-primary:hover{
+  transform:translateY(-2px);
+  border-color:rgba(96,165,250,0.5);
+  box-shadow:
+    0 8px 30px rgba(59,130,246,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.cta-primary:hover svg{
+  transform:translateX(4px);
+}
+.cta-primary:active{
+  transform:translateY(0);
+}
+.cta-features{
+  display:flex;gap:36px;justify-content:center;
+  flex-wrap:wrap;padding-top:44px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+.cta-feat{
+  display:inline-flex;align-items:center;gap:11px;
+  font-size:0.92rem;color:rgba(255,255,255,0.68);
+  font-weight:500;
+}
+.cta-feat svg{
+  width:20px;height:20px;
+  color:var(--teal-400);flex-shrink:0;
+  filter:drop-shadow(0 2px 10px rgba(20,184,166,0.5));
+}
+
+
+
+/* ─── ABOUT ─── */
+.about{padding:70px 0;background:var(--about-bg)}
+
+/* ─── FAQ ─── */
+.faq{padding:70px 0;background:var(--gray-50)}
+.faq .w{max-width:900px;margin:0 auto;padding:0 40px}
+.faq-list{display:flex;flex-direction:column;gap:16px}
+.faq-item{
+  background:var(--gray-50);
+  border:1px solid var(--gray-200);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:all 0.3s;
+}
+.faq-item:hover{
+  border-color:var(--blue-200);
+  box-shadow:0 4px 16px rgba(37,99,235,0.08);
+}
+.faq-question{
+  padding:20px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+  font-weight:700;
+  color:var(--ink);
+  font-size:0.95rem;
+  user-select:none;
+}
+.faq-icon{
+  font-size:1.2rem;
+  color:var(--blue-500);
+  transition:transform 0.3s;
+  flex-shrink:0;
+  margin-left:16px;
+}
+.faq-item.open .faq-icon{
+  transform:rotate(45deg);
+}
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height 0.3s ease;
+}
+.faq-item.open .faq-answer{
+  max-height:300px;
+}
+.faq-answer-content{
+  padding:0 24px 20px;
+  color:var(--gray-600);
+  line-height:1.75;
+  font-size:0.88rem;
+}
+.about .w{max-width:1200px;margin:0 auto;padding:0 40px}
+.about-grid{display:grid;grid-template-columns:0.5fr 1fr;gap:64px;align-items:start}
+.about-card{
+  background:var(--white);border:2px solid var(--gray-200);
+  border-radius:var(--radius-lg);padding:32px 28px;text-align:center;
+  position:sticky;top:100px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  transition:all 0.3s;
+}
+.about-card:hover{
+  border-color:var(--blue-200);
+  box-shadow:0 8px 30px rgba(37,99,235,0.1);
+  transform:translateY(-2px);
+}
+.av-ring{
+  width:150px;height:150px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue-500),var(--teal-500));
+  padding:3px;margin:0 auto 16px;
+}
+.av-inner{
+  width:100%;height:100%;border-radius:50%;background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;font-weight:800;color:var(--blue-600);
+}
+.about-card h3{font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.about-card .sub{font-size:0.78rem;color:var(--gray-400);margin-bottom:16px}
+.about-card .avail{
+  display:inline-flex;align-items:center;gap:6px;font-size:0.75rem;
+  color:var(--teal-600);font-weight:600;
+  background:var(--teal-50);border:1px solid var(--teal-100);
+  padding:6px 14px;border-radius:20px;
+}
+.about-card .avail::before{content:'';width:6px;height:6px;background:var(--teal-500);border-radius:50%;animation:pulse 2s infinite}
+.about-body h2{
+  font-size:clamp(2rem,3vw,2.6rem);font-weight:800;
+  letter-spacing:-0.03em;line-height:1.15;color:var(--ink);margin-bottom:20px;
+}
+.about-body h2 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--blue-500),var(--teal-500));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.about-body p{font-size:0.92rem;color:var(--gray-500);line-height:1.8;margin-bottom:14px}
+.about-body p strong{color:var(--ink);font-weight:600}
+.tech-section{margin-top:28px}
+.tech-label{
+  font-family:var(--mono);font-size:0.65rem;color:var(--gray-400);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;font-weight:600;
+}
+.tech-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tt{
+  font-size:0.8rem;font-weight:500;padding:8px 18px;
+  border-radius:var(--radius);background:var(--white);
+  border:1px solid var(--gray-200);color:var(--gray-600);transition:all 0.2s;
+}
+.tt:hover{border-color:var(--blue-400);color:var(--blue-600);background:var(--blue-50)}
+
+/* ─── CONTACT ─── */
+.contact{
+  padding:70px 0 70px;
+  background:var(--white);
+}
+.contact .w{max-width:1200px;margin:0 auto;padding:0 40px}
+.contact-box{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-radius:var(--radius-lg);overflow:hidden;
+  box-shadow:0 12px 40px rgba(0,0,0,0.08);
+}
+.contact-l{
+  padding:48px 44px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg, #0f1a2e, #141e33 50%, #0d1628);
+}
+.contact-l::before{
+  content:'';position:absolute;bottom:-100px;left:-60px;
+  width:350px;height:350px;
+  background:radial-gradient(circle,rgba(37,99,235,0.18),transparent 60%);
+  filter:blur(60px);
+}
+.contact-l::after{
+  content:'';position:absolute;top:-80px;right:-80px;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(13,148,136,0.12),transparent 60%);
+  filter:blur(60px);
+}
+.contact-l .stag{-webkit-text-fill-color:var(--teal-400);position:relative;z-index:2}
+.contact-l h2{
+  font-size:2.4rem;font-weight:800;letter-spacing:-0.03em;
+  line-height:1.12;color:white;margin-bottom:14px;position:relative;z-index:2;
+}
+.contact-l h2 span{
+  background:linear-gradient(135deg,var(--blue-400),var(--teal-400));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.contact-l>p{
+  font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.75;
+  margin-bottom:26px;position:relative;z-index:2;
+}
+.contact-features{position:relative;z-index:2;display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+.cf-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;padding:16px 18px;
+  transition:background 0.3s,border-color 0.3s;
+}
+.cf-item:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.1)}
+.cf-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,rgba(37,99,235,0.15),rgba(13,148,136,0.1));
+  border:1px solid rgba(37,99,235,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.cf-title{font-size:0.88rem;font-weight:700;color:white;margin-bottom:3px}
+.cf-desc{font-size:0.76rem;color:rgba(255,255,255,0.45);line-height:1.55}
+.contact-details-row{
+  display:flex;gap:24px;flex-wrap:wrap;position:relative;z-index:2;
+  padding-top:18px;border-top:1px solid rgba(255,255,255,0.06);
+}
+.cdr-item{display:flex;flex-direction:column;gap:2px}
+.cdr-label{font-size:0.62rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;font-weight:600}
+.cdr-value{font-size:0.85rem;color:white;font-weight:500}
+.cdr-value a{color:var(--blue-400);text-decoration:none}
+.cdr-value a:hover{text-decoration:underline}
+
+.contact-r{padding:48px 44px;background:var(--white)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:0.7rem;font-weight:600;color:var(--gray-400);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+.fg input,.fg textarea,.fg select{
+  width:100%;padding:13px 16px;border-radius:var(--radius);
+  border:1.5px solid var(--gray-200);background:var(--gray-50);
+  color:var(--ink);font-family:var(--sans);font-size:0.85rem;
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{
+  border-color:var(--blue-500);
+  box-shadow:0 0 0 3px rgba(37,99,235,0.08);
+}
+.fg input:invalid:not(:placeholder-shown),.fg textarea:invalid:not(:placeholder-shown),.fg select:invalid:not(:placeholder-shown){
+  border-color:#ef4444;
+}
+.fg input:valid:not(:placeholder-shown),.fg textarea:valid:not(:placeholder-shown),.fg select:valid:not(:placeholder-shown){
+  border-color:#10b981;
+}
+.fg-error{
+  font-size:0.75rem;color:#ef4444;margin-top:4px;
+  display:none;font-weight:500;
+}
+.fg.error .fg-error{
+  display:block;
+}
+.fg select{
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ea1ab' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;
+  padding-right:40px;cursor:pointer;
+}
+.fg textarea{resize:vertical;min-height:100px}
+.sub-btn{
+  width:100%;padding:15px;border:none;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--blue-600),var(--teal-600));
+  color:white;font-family:var(--sans);font-size:0.88rem;font-weight:600;
+  cursor:pointer;transition:all 0.3s;margin-top:4px;
+}
+.sub-btn:hover{opacity:0.9;transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,99,235,0.2)}
+.sub-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ─── FORM SUCCESS ─── */
+.form-success{
+  display:none;padding:48px 44px;background:var(--white);
+  flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;min-height:100%;
+}
+.form-success.active{display:flex}
+.contact-r.hidden{display:none}
+.success-icon{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(13,148,136,0.1),rgba(37,99,235,0.08));
+  border:1.5px solid var(--teal-100);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.success-check{width:32px;height:32px}
+.success-check svg{width:32px;height:32px}
+.success-check svg path{
+  stroke:var(--teal-500);stroke-width:2.5;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:30;stroke-dashoffset:30;
+  animation:drawCheck 0.5s ease 0.2s forwards;
+}
+@keyframes drawCheck{to{stroke-dashoffset:0}}
+.form-success h3{
+  font-size:1.4rem;font-weight:800;color:var(--ink);
+  letter-spacing:-0.02em;margin-bottom:10px;
+}
+.form-success p{
+  font-size:0.88rem;color:var(--gray-500);line-height:1.7;
+  max-width:320px;margin-bottom:24px;
+}
+.form-success .response-note{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:0.72rem;font-weight:600;
+  color:var(--teal-600);background:var(--teal-50);
+  border:1px solid var(--teal-100);
+  padding:8px 18px;border-radius:24px;margin-bottom:20px;
+}
+.form-success .response-note::before{
+  content:'';width:6px;height:6px;background:var(--teal-500);
+  border-radius:50%;animation:pulse 2s infinite;
+}
+.send-another{
+  font-family:var(--sans);font-size:0.78rem;font-weight:500;
+  color:var(--blue-600);background:none;border:none;
+  cursor:pointer;text-decoration:underline;
+  text-underline-offset:3px;transition:color 0.2s;
+}
+.send-another:hover{color:var(--blue-500)}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding:48px 0 0;
+  background:linear-gradient(135deg, #0c1929 0%, #0f2338 40%, #0a1628 100%);
+  position:relative;
+}
+
+/* ─── SCROLL TO TOP ─── */
+.scroll-top{
+  position:fixed;
+  bottom:32px;
+  right:32px;
+  width:48px;
+  height:48px;
+  background:linear-gradient(135deg,var(--blue-600),var(--teal-600));
+  border-radius:12px;
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 20px rgba(37,99,235,0.3);
+  opacity:0;
+  pointer-events:none;
+  transition:all 0.3s;
+  z-index:50;
+}
+.scroll-top.visible{
+  opacity:1;
+  pointer-events:auto;
+}
+.scroll-top:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(37,99,235,0.4);
+}
+.scroll-top svg{
+  color:white;
+  width:20px;
+  height:20px;
+}
+footer::before{
+  content:'';position:absolute;top:0;right:0;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(37,99,235,0.08),transparent 60%);
+  pointer-events:none;filter:blur(60px);
+}
+.footer-content{
+  max-width:1200px;margin:0 auto;padding:0 40px;
+  display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;
+  margin-bottom:32px;position:relative;z-index:2;
+}
+.footer-brand h3{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;font-size:1.5rem;
+  color:white;margin-bottom:8px;letter-spacing:-0.03em;
+}
+.footer-brand .logo-accent{color:var(--blue-400)}
+.footer-brand p{
+  font-size:0.85rem;color:rgba(255,255,255,0.5);
+  line-height:1.7;max-width:320px;
+}
+.footer-col h4{
+  font-size:0.75rem;font-weight:700;
+  color:rgba(255,255,255,0.4);text-transform:uppercase;
+  letter-spacing:0.08em;margin-bottom:16px;
+}
+.footer-col a{
+  display:block;font-size:0.88rem;
+  color:rgba(255,255,255,0.6);text-decoration:none;
+  margin-bottom:10px;transition:color 0.2s;
+}
+.footer-col a:hover{color:var(--blue-400)}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;padding:0 40px 32px 40px;
+  padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;position:relative;z-index:2;
+}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.35)}
+.footer-bottom a{color:var(--blue-400);text-decoration:none}
+.footer-bottom a:hover{text-decoration:underline}
+
+/* ─── ANIMATIONS ─── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv:nth-child(1){transition-delay:0s}
+.rv:nth-child(2){transition-delay:0.1s}
+.rv:nth-child(3){transition-delay:0.2s}
+.rv:nth-child(4){transition-delay:0.3s}
+.rv:nth-child(5){transition-delay:0.4s}
+.rv:nth-child(6){transition-delay:0.5s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .about-card{position:static;display:flex;align-items:center;gap:20px;text-align:left;padding:24px 28px}
+  .av-ring{margin:0;width:72px;height:72px;flex-shrink:0}
+  .contact-box{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav .w,.hero .w,.services .w,.process .w,.stack .w,.about .w,.contact .w,.cta-section .w{padding:0 24px}
+  .nav-r{display:none}
+  .mob-toggle{display:flex;align-items:center;justify-content:center}
+  .mob-menu{padding:20px 24px 28px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .stack-grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .proc{border-right:none;border-bottom:1px solid rgba(13,148,136,0.12)}
+  .hero-stats{flex-direction:column}
+  .h-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .h-stat:last-child{border-bottom:none}
+  .fr{grid-template-columns:1fr}
+  .contact-l,.contact-r,.form-success{padding:36px 28px}
+  .contact-features{gap:10px}
+  .cta-box{padding:44px 32px}
+  .cta-box h2{font-size:2.2rem}
+  .cta-features{gap:24px;padding-top:36px}
+  .cta-actions{flex-direction:column;width:100%}
+  .cta-primary,.cta-secondary{width:100%;justify-content:center}
+  .footer-content{grid-template-columns:1fr;gap:32px;padding:0 24px}
+  .footer-bottom{padding:0 24px;flex-direction:column;text-align:center}
+  .fg input,.fg textarea,.fg select{font-size:16px}
+}
+@media(max-width:480px){
+  .svc-grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.6rem}
+  .cta-box{padding:36px 24px}
+  .cta-box h2{font-size:1.9rem}
+  .cta-primary{padding:15px 32px;font-size:0.98rem}
+  .cta-secondary{padding:15px 28px;font-size:0.96rem}
+  .cta-features{flex-direction:column;align-items:center;gap:16px}
+  .btn-blue,.btn-light{width:100%;justify-content:center;padding:16px 32px}
+  .nav-btn{font-size:0.9rem!important;padding:12px 24px!important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="w">
+    <a href="#" class="logo" aria-label="YonasCodes — Home">Yonas<span class="logo-accent">Codes</span></a>
+    <div class="nav-r">
+      <a href="#work">Packages</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-btn">Get Started</a>
+      <a href="/portal" class="nav-btn">Client Portal</a>
+    </div>
+    <button class="mob-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu" role="navigation" aria-label="Mobile navigation">
+  <a href="#work">Packages</a>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact" class="mob-cta">Get Started</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="w">
+    <div class="hero-badge"><span class="hero-dot"></span> Available for new projects</div>
+    <h1>Websites that<br>actually <span class="grad">perform.</span></h1>
+    <p class="hero-desc">I design and build custom web experiences for businesses in the Philadelphia metro. No templates. No page builders. Just clean code and sharp design built around your goals.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-blue">Start a Project →</a>
+      <a href="#work" class="btn-light">View Packages</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="num">100<span>%</span></div><div class="lbl">Client Satisfaction</div></div>
+      <div class="h-stat"><div class="num">Full<span>Stack</span></div><div class="lbl">End-to-End Development</div></div>
+      <div class="h-stat"><div class="num">24<span>hr</span></div><div class="lbl">Response Time</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="w">
+    <div class="rv"><div class="stag">Process</div><h2 class="sh">How we work together.</h2><p class="sp">Four clear steps. No surprises.</p></div>
+    <div class="proc-grid">
+      <div class="proc rv"><div class="proc-num">01</div><h4>Discovery</h4><p>We discuss your business, goals, and audience. I research your space and plan the approach.</p></div>
+      <div class="proc rv"><div class="proc-num">02</div><h4>Design</h4><p>I create a visual concept you can see and interact with. We iterate until it feels right.</p></div>
+      <div class="proc rv"><div class="proc-num">03</div><h4>Develop</h4><p>Design becomes a working site. You see progress throughout and give feedback in real time.</p></div>
+      <div class="proc rv"><div class="proc-num">04</div><h4>Launch</h4><p>Testing, deployment, handoff. Everything runs perfectly before and after go-live.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="stack" id="work">
+  <div class="w">
+    <div class="rv"><div class="stag">Packages</div><h2 class="sh">Clear pricing. No surprises.</h2><p class="sp">Straightforward pricing for common projects. Custom work priced after we understand your needs.</p></div>
+    <div class="stack-grid">
+      <div class="stack-card rv" data-package="Basic Informational Website ($500)">
+        <div class="sc-header"><div class="sc-icon si-b">📄</div><div class="sc-name">Basic Informational Website<span>Starting Point</span></div></div>
+        <div class="sc-price-label">Starting at</div>
+        <div class="sc-price">$500</div>
+        <p>Perfect for portfolios, personal brands, or simple business presences. Clean design, mobile-responsive, and optimized for search engines. Includes up to 5 pages and contact form.</p>
+        <div class="sc-details">
+          <ul>
+            <li>Up to 5 custom pages</li>
+            <li>Mobile-responsive design</li>
+            <li>Contact form integration</li>
+            <li>Basic SEO optimization</li>
+            <li>Fast loading speeds</li>
+            <li>2 rounds of revisions</li>
+          </ul>
+        </div>
+        <div class="sc-biz">Learn more</div>
+      </div>
+      <div class="stack-card rv" data-package="Small Business Website ($800)">
+        <div class="sc-header"><div class="sc-icon si-t">🏢</div><div class="sc-name">Small Business Website<span>Most Popular</span></div></div>
+        <div class="sc-price-label">Starting at</div>
+        <div class="sc-price">$800</div>
+        <p>Comprehensive business website with custom design, CMS integration for easy updates, service/product pages, and advanced SEO optimization. Everything you need to compete online.</p>
+        <div class="sc-details">
+          <ul>
+            <li>Up to 10 custom pages</li>
+            <li>CMS integration (easy updates)</li>
+            <li>Advanced SEO setup</li>
+            <li>Blog/news section</li>
+            <li>Contact & service forms</li>
+            <li>Google Analytics setup</li>
+            <li>3 rounds of revisions</li>
+          </ul>
+        </div>
+        <div class="sc-biz">Learn more</div>
+      </div>
+      <div class="stack-card rv" data-package="Ecommerce Website ($1200)">
+        <div class="sc-header"><div class="sc-icon si-s">🛒</div><div class="sc-name">Ecommerce Website<span>Sell Online</span></div></div>
+        <div class="sc-price-label">Starting at</div>
+        <div class="sc-price">$1200</div>
+        <p>Full online store with product catalog, shopping cart, secure checkout, payment processing integration, inventory management, and customer accounts. Built to drive sales.</p>
+        <div class="sc-details">
+          <ul>
+            <li>Product catalog setup</li>
+            <li>Shopping cart & checkout</li>
+            <li>Payment gateway integration</li>
+            <li>Inventory management</li>
+            <li>Customer account system</li>
+            <li>Order tracking</li>
+            <li>Email notifications</li>
+            <li>Security & SSL setup</li>
+          </ul>
+        </div>
+        <div class="sc-biz">Learn more</div>
+      </div>
+      <div class="stack-card rv" data-package="Custom Web Application (Custom Quote)">
+        <div class="sc-header"><div class="sc-icon si-t">⚙️</div><div class="sc-name">Custom Web Application<span>Enterprise Solution</span></div></div>
+        <div class="sc-price-label">Pricing</div>
+        <div class="sc-price" style="font-size:2.2rem">Custom</div>
+        <p>Fully custom software tailored to your specific business needs. Advanced functionality, database architecture, API integrations, user authentication, and complex business logic.</p>
+        <div class="sc-details">
+          <ul>
+            <li>Custom database design</li>
+            <li>User authentication & roles</li>
+            <li>Third-party API integration</li>
+            <li>Complex business logic</li>
+            <li>Admin dashboard</li>
+            <li>Scalable architecture</li>
+            <li>Ongoing support available</li>
+          </ul>
+        </div>
+        <div class="sc-biz">Request quote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div class="w">
+    <div class="cta-box rv">
+      <div class="cta-grid">
+        <div class="cta-content">
+          <h2>Ready to get <span class="gradient-text">started?</span></h2>
+          <p>Tell me about your project and I'll get back to you within 24 hours with a detailed proposal and timeline.</p>
+          <div class="cta-actions">
+            <a href="#contact" class="cta-primary">
+              <span>Start a Project</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="cta-features">
+            <div class="cta-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              Free consultation
+            </div>
+            <div class="cta-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              No commitment required
+            </div>
+            <div class="cta-feat">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              24-hour response time
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="w">
+    <div class="rv"><div class="stag">Services</div><h2 class="sh">How I help your business grow.</h2><p class="sp">Technical expertise and strategic thinking to make your web presence a competitive advantage.</p></div>
+    <div class="svc-tags rv">
+      <span class="svc-tag">Performance Optimization</span>
+      <span class="svc-tag">Technical SEO</span>
+      <span class="svc-tag">API Development</span>
+      <span class="svc-tag">Database Architecture</span>
+      <span class="svc-tag">Security Hardening</span>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rv"><div class="svc-icon si-blue">⚡</div><h3>Performance & Speed</h3><p>Core Web Vitals optimization, lazy loading, image compression, and caching strategies that make your site load in under 2 seconds. Faster sites rank higher and convert better.</p></div>
+      <div class="svc rv"><div class="svc-icon si-teal">🔍</div><h3>Technical SEO</h3><p>Structured data, semantic HTML, crawlability optimization, and performance tuning that helps search engines understand and rank your content. Built-in visibility from day one.</p></div>
+      <div class="svc rv"><div class="svc-icon si-sky">🔗</div><h3>API Integration</h3><p>Connect your site to payment processors, CRMs, email platforms, booking systems, and third-party services. Seamless data flow between all your business tools.</p></div>
+      <div class="svc rv"><div class="svc-icon si-teal">🗄️</div><h3>Database Design</h3><p>Scalable data architecture that grows with your business. From simple contact forms to complex user systems, your data is organized, queryable, and secure.</p></div>
+      <div class="svc rv"><div class="svc-icon si-blue">🛡️</div><h3>Security & Compliance</h3><p>SSL certificates, input validation, XSS protection, CSRF tokens, and security headers. Your site and your users' data stay protected against common vulnerabilities.</p></div>
+      <div class="svc rv"><div class="svc-icon si-sky">🔧</div><h3>Ongoing Maintenance</h3><p>Monthly updates, security patches, performance monitoring, uptime tracking, and technical support. I keep your site running smoothly so you can focus on your business.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="w">
+    <div class="about-grid">
+      <div class="about-card rv">
+        <div class="av-ring">
+          <div class="av-inner">
+            <img src="/profile.jfif" alt="Yonas Shah" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+          </div>
+        </div>
+        <div>
+          <h3>Yonas</h3>
+          <div class="sub">Full-Stack Developer · Philadelphia</div>
+          <div class="avail">Available for projects</div>
+        </div>
+      </div>
+      <div class="about-body rv">
+        <div class="stag">About</div>
+        <h2>Your business deserves a website built with <em>intention.</em></h2>
+        <p>I'm Yonas — a full-stack developer based in the Philadelphia metro area. I partner with local businesses that are ready to invest in a web presence that actually works for them — one that's custom-built around their goals, their customers, and their growth.</p>
+        <p><strong>I focus on outcomes.</strong> A good-looking website means nothing if it doesn't generate leads, rank in search, or work on someone's phone. Every decision I make — from the framework to the layout — is driven by what will move the needle for your business.</p>
+        <p>I handle everything end-to-end — design, development, deployment, and ongoing support. You get a single point of contact who knows your project inside and out, communicates clearly, and delivers on time.</p>
+        <div class="tech-section">
+          <div class="tech-label">Technologies</div>
+          <div class="tech-tags">
+            <span class="tt">Python</span>
+            <span class="tt">Django</span>
+            <span class="tt">JavaScript</span>
+            <span class="tt">SQL</span>
+            <span class="tt">NoSQL</span>
+            <span class="tt">Sanity CMS</span>
+            <span class="tt">Tailwind CSS</span>
+            <span class="tt">Git</span>
+            <span class="tt">Netlify</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="w">
+    <div class="contact-box rv">
+      <div class="contact-l">
+        <div class="stag">Contact</div>
+        <h2>Let's Build Something <span>Exceptional.</span></h2>
+        <p>Stop losing market share to competitors with better digital experiences. Request a free performance review and technical proposal today.</p>
+        <div class="contact-features">
+          <div class="cf-item">
+            <div class="cf-icon">⚡</div>
+            <div><div class="cf-title">Performance-Optimized</div><div class="cf-desc">Built using modern frameworks prioritized for speed and Core Web Vitals.</div></div>
+          </div>
+          <div class="cf-item">
+            <div class="cf-icon">🔒</div>
+            <div><div class="cf-title">Modern Security Standards</div><div class="cf-desc">Implementing industry best practices for data protection and SSL.</div></div>
+          </div>
+          <div class="cf-item">
+            <div class="cf-icon">📱</div>
+            <div><div class="cf-title">Mobile-First Design</div><div class="cf-desc">Responsive experiences that look and perform flawlessly on every device.</div></div>
+          </div>
+        </div>
+        <div class="contact-details-row">
+          <div class="cdr-item"><div class="cdr-label">Email</div><div class="cdr-value"><a class="email-link" href="#">loading...</a></div></div>
+          <div class="cdr-item"><div class="cdr-label">Location</div><div class="cdr-value">Philadelphia Metropolitan Area</div></div>
+          <div class="cdr-item"><div class="cdr-label">Response Time</div><div class="cdr-value">Within 24hrs</div></div>
+        </div>
+      </div>
+      <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" class="contact-r" id="contactForm">
+        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+        <input type="hidden" name="form-name" value="contact" />
+        <div class="fr">
+          <div class="fg"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required><span class="fg-error">Please enter your name</span></div>
+          <div class="fg"><label for="business">Business</label><input type="text" id="business" name="business" placeholder="Business name"></div>
+        </div>
+        <div class="fr">
+          <div class="fg"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@example.com" required><span class="fg-error">Please enter a valid email</span></div>
+          <div class="fg"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" pattern="[0-9\s\(\)\-\+\.]*" title="Please enter a valid phone number"></div>
+        </div>
+        <div class="fg">
+          <label for="service">Package / Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">Select a package or service...</option>
+            <optgroup label="Website Packages">
+              <option>Basic Informational Website ($500)</option>
+              <option>Small Business Website ($800)</option>
+              <option>Ecommerce Website ($1200)</option>
+              <option>Custom Web Application (Custom Quote)</option>
+            </optgroup>
+            <optgroup label="Additional Services">
+              <option>Website Redesign</option>
+              <option>API Integration</option>
+              <option>Performance Optimization</option>
+              <option>Ongoing Support & Maintenance</option>
+              <option>Something Else</option>
+            </optgroup>
+          </select>
+          <span class="fg-error">Please select a service</span>
+        </div>
+        <div class="fg"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell me about your project, goals, and timeline..." required></textarea><span class="fg-error">Please describe your project</span></div>
+        <button type="submit" class="sub-btn">Send Message →</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon"><div class="success-check"><svg viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6"/></svg></div></div>
+        <h3>Message Sent</h3>
+        <p>Thank you for reaching out. I'll review your project details and get back to you shortly.</p>
+        <div class="response-note">Typical response within 24 hours</div>
+        <button class="send-another" type="button">Send another message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="w">
+    <div class="rv"><div class="stag">FAQ</div><h2 class="sh">Common questions.</h2><p class="sp">Everything you need to know about working together.</p></div>
+    <div class="faq-list">
+      <div class="faq-item rv">
+        <div class="faq-question">
+          How long does it take to build a website?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Timeline depends on the package and complexity. A basic informational site typically takes 2-3 weeks from kickoff to launch. Small business sites take 3-4 weeks, and ecommerce sites take 4-6 weeks. Custom applications are quoted based on requirements.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item rv">
+        <div class="faq-question">
+          Do you offer ongoing support after launch?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Yes! I offer monthly maintenance packages that include updates, security patches, performance monitoring, and technical support. You can also reach out for one-off updates or changes as needed.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item rv">
+        <div class="faq-question">
+          Can I update the website myself after it's built?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Absolutely. For packages that include CMS integration, you'll be able to update content, add blog posts, and manage your site through an easy-to-use dashboard. I provide training and documentation to get you comfortable with it.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item rv">
+        <div class="faq-question">
+          What if I need changes after the project is complete?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Each package includes rounds of revisions during the project. After launch, small tweaks are typically included for the first 30 days. Larger changes or new features can be quoted as add-on work.
+          </div>
+        </div>
+      </div>
+      <div class="faq-item rv">
+        <div class="faq-question">
+          Do you work with clients outside of Philadelphia?
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Yes! While I'm based in the Philadelphia metro, I work with clients remotely across the US. Communication happens via email, video calls, and project management tools to keep everything smooth.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <h3>Yonas<span class="logo-accent">Codes</span></h3>
+      <p>Custom web development for growing businesses. Building high-performance websites that drive results.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#work">Packages</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#work">Website Development</a>
+      <a href="#work">E-commerce Solutions</a>
+      <a href="#services">API Integration</a>
+      <a href="#services">Maintenance & Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 YonasCodes. All rights reserved.</p>
+    <p>Designed & developed with care</p>
+  </div>
+</footer>
+
+</main>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Email obfuscation
+(function(){
+  var u='yonas',d='yonascodes',t='.com',full=u+'@'+d+t;
+  var el=document.querySelector('.email-link');
+  if(el){el.href='mai'+'lto:'+full;el.textContent=full;}
+})();
+
+// Mobile menu
+(function(){
+  var toggle=document.querySelector('.mob-toggle');
+  var menu=document.getElementById('mobMenu');
+  var links=menu.querySelectorAll('a');
+
+  toggle.addEventListener('click',function(){
+    var isOpen=toggle.classList.toggle('open');
+    menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',isOpen);
+    toggle.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
+  });
+
+  links.forEach(function(link){
+    link.addEventListener('click',function(){
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open menu');
+    });
+  });
+
+  // Close on escape
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&menu.classList.contains('open')){
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.focus();
+    }
+  });
+})();
+
+// Form submission
+(function(){
+  var form=document.getElementById('contactForm');
+  var success=document.getElementById('formSuccess');
+  var sendAnother=document.querySelector('.send-another');
+  
+  // Real-time validation
+  var requiredFields=form.querySelectorAll('[required]');
+  requiredFields.forEach(function(field){
+    field.addEventListener('blur',function(){
+      validateField(field);
+    });
+  });
+  
+  function validateField(field){
+    var parent=field.closest('.fg');
+    if(!field.validity.valid){
+      parent.classList.add('error');
+    }else{
+      parent.classList.remove('error');
+    }
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    
+    // Validate all required fields
+    var isValid=true;
+    requiredFields.forEach(function(field){
+      validateField(field);
+      if(!field.validity.valid){
+        isValid=false;
+      }
+    });
+    
+    if(!isValid){
+      // Scroll to first error
+      var firstError=form.querySelector('.fg.error');
+      if(firstError){
+        firstError.scrollIntoView({behavior:'smooth',block:'center'});
+      }
+      return;
+    }
+    
+    var btn=form.querySelector('.sub-btn');
+    btn.disabled=true;
+    btn.textContent='Sending...';
+
+    var data=new URLSearchParams(new FormData(form)).toString();
+
+    fetch('/',{
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:data
+    })
+    .then(function(res){
+      if(res.ok){
+        form.classList.add('hidden');
+        success.classList.add('active');
+      } else {
+        btn.disabled=false;
+        btn.textContent='Send Message →';
+        alert('Something went wrong. Please try again or email directly.');
+      }
+    })
+    .catch(function(){
+      btn.disabled=false;
+      btn.textContent='Send Message →';
+      alert('Something went wrong. Please try again or email directly.');
+    });
+  });
+
+  sendAnother.addEventListener('click',function(){
+    form.reset();
+    form.classList.remove('hidden');
+    success.classList.remove('active');
+    var btn=form.querySelector('.sub-btn');
+    btn.disabled=false;
+    btn.textContent='Send Message →';
+  });
+})();
+
+// Scroll reveal
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting) entry.target.classList.add('vis');
+  });
+},{threshold:0.1});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+
+// Nav scroll spy
+var navLinks=document.querySelectorAll('.nav-r a:not(.nav-btn), .mob-menu a:not(.mob-cta)');
+var sections=document.querySelectorAll('section[id]');
+function updateActiveNav(){
+  var current='';
+  sections.forEach(function(section){
+    if(window.scrollY>=section.offsetTop-120) current=section.getAttribute('id');
+  });
+  navLinks.forEach(function(link){
+    link.classList.remove('active');
+    if(link.getAttribute('href')==='#'+current) link.classList.add('active');
+  });
+}
+window.addEventListener('scroll',updateActiveNav);
+updateActiveNav();
+
+// Package card clicks
+(function(){
+  var packageCards=document.querySelectorAll('.stack-card[data-package]');
+  var serviceSelect=document.getElementById('service');
+  
+  packageCards.forEach(function(card){
+    var learnMoreBtn=card.querySelector('.sc-biz');
+    
+    // Learn more toggle
+    learnMoreBtn.addEventListener('click',function(e){
+      e.stopPropagation();
+      
+      // Toggle current card (allow multiple expanded for comparison)
+      card.classList.toggle('expanded');
+      if(card.classList.contains('expanded')){
+        learnMoreBtn.textContent=learnMoreBtn.textContent.replace('Learn more','Show less').replace('Request quote','Hide details');
+      }else{
+        learnMoreBtn.textContent=learnMoreBtn.textContent.replace('Show less','Learn more').replace('Hide details','Request quote');
+      }
+    });
+    
+    // Click card to go to contact
+    card.addEventListener('click',function(){
+      if(card.classList.contains('expanded')) return;
+      
+      var packageName=card.getAttribute('data-package');
+      
+      // Scroll to contact form
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      
+      // Pre-select the package in the dropdown after a short delay
+      setTimeout(function(){
+        // Find and select the matching option
+        var options=serviceSelect.options;
+        for(var i=0;i<options.length;i++){
+          if(options[i].value===packageName){
+            serviceSelect.value=packageName;
+            // Add a subtle highlight effect
+            serviceSelect.style.borderColor='var(--blue-500)';
+            serviceSelect.style.boxShadow='0 0 0 3px rgba(37,99,235,0.08)';
+            setTimeout(function(){
+              serviceSelect.style.borderColor='';
+              serviceSelect.style.boxShadow='';
+            },2000);
+            break;
+          }
+        }
+        // Focus on the name field to encourage form completion
+        document.getElementById('name').focus();
+      },800);
+    });
+    
+    // Add keyboard accessibility
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    card.setAttribute('aria-label','Select '+card.querySelector('.sc-name').textContent+' package');
+    
+    card.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+})();
+
+// Scroll to top button
+(function(){
+  var scrollBtn=document.getElementById('scrollTop');
+  
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>400){
+      scrollBtn.classList.add('visible');
+    }else{
+      scrollBtn.classList.remove('visible');
+    }
+  });
+  
+  scrollBtn.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+
+// FAQ accordion
+(function(){
+  var faqItems=document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(function(item){
+    var question=item.querySelector('.faq-question');
+    
+    question.addEventListener('click',function(){
+      // Close other items
+      faqItems.forEach(function(otherItem){
+        if(otherItem!==item && otherItem.classList.contains('open')){
+          otherItem.classList.remove('open');
+        }
+      });
+      
+      // Toggle current item
+      item.classList.toggle('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
