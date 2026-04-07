@@ -72,6 +72,10 @@ function Login() {
           <button type="submit" className="btn-primary" disabled={loading}>
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
+
+          <div className="forgot-password">
+            <a href="/portal/forgot-password">Forgot password?</a>
+          </div>
         </form>
 
         <div className="auth-footer">

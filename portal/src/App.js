@@ -5,6 +5,8 @@ import './App.css';
 
 // Components
 import Login from './components/Auth/Login';
+import PasswordReset from './components/Auth/PasswordReset';
+import UpdatePassword from './components/Auth/UpdatePassword';
 import ClientDashboard from './components/Dashboard/ClientDashboard';
 import AdminDashboard from './components/Admin/AdminDashboard';
 
@@ -44,6 +46,14 @@ function App() {
         <Route
           path="/"
           element={session ? <Navigate to="/dashboard" replace /> : <Login />}
+        />
+        <Route
+          path="/forgot-password"
+          element={<PasswordReset />}
+        />
+        <Route
+          path="/reset-password"
+          element={<UpdatePassword />}
         />
         <Route
           path="/dashboard"
