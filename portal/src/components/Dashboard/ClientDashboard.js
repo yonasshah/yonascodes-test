@@ -15,6 +15,7 @@ const ClientDashboard = ({ user, session, onSignOut }) => {
   const [files, setFiles] = useState([]);
   const [invoices, setInvoices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   // Handle both 'user' and 'session' props (session.user)
   const currentUser = user || session?.user;
@@ -202,12 +203,20 @@ const ClientDashboard = ({ user, session, onSignOut }) => {
         </div>
       </nav>
 
-      <div className="dashboard-container">
-        {/* Sidebar */}
-        <aside className="sidebar">
-          <div className="sidebar-section">
-            <h3 className="sidebar-title">Your Projects</h3>
-            <div className="project-list">
+      <div className={`dashboard-container ${!isSidebarOpen ? 'sidebar-collapsed' : ''}`}>
+  {/* The toggle button stays outside the sliding content area */}
+  <button 
+    className="sidebar-toggle" 
+    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+  >
+    {isSidebarOpen ? '◀' : '▶'}
+  </button>
+
+  <aside className={`sidebar ${!isSidebarOpen ? 'hidden' : ''}`}>
+    <div className="sidebar-section">
+      {/* Remove the toggle button from here so it doesn't overlap titles */}
+      <h3 className="sidebar-title">Your Projects</h3>
+      <div className="project-list">
               {projects.length === 0 ? (
                 <p className="empty-text">No projects yet</p>
               ) : (

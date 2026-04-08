@@ -1152,3 +1152,65 @@
   color: var(--text-secondary);
   margin: 0;
 }
+.dashboard-container {
+  display: grid;
+  /* Animate the grid columns transition */
+  grid-template-columns: 280px 1fr;
+  transition: grid-template-columns 0.3s ease;
+  position: relative;
+}
+
+.dashboard-container.sidebar-collapsed {
+  grid-template-columns: 0px 1fr;
+}
+
+
+.sidebar.hidden {
+  transform: translateX(-100%); /* Slides it off-screen to the left */
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar-toggle {
+  position: absolute;
+  /* This moves it to the very top-left of the dashboard area */
+  left: 0; 
+  top: 74px; /* Adjust this to sit below your main dashboard nav */
+  z-index: 1001; /* High z-index to stay above the sidebar */
+  
+  /* Visual styling */
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0; /* Only rounds the right side */
+  width: 24px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.sidebar-toggle:hover {
+  background: var(--primary-hover);
+  width: 28px; /* Slight expand on hover for better feel */
+}
+
+/* Move the button with the sidebar space */
+.dashboard-container.sidebar-collapsed .sidebar-toggle {
+  left: 0; /* Stays at the left edge when collapsed */
+}
+
+.dashboard-container:not(.sidebar-collapsed) .sidebar-toggle {
+  left: 280px; /* Moves to the edge of the sidebar when open */
+}
+
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 40px 16px 24px 16px; /* Combined padding: Top Right Bottom Left */
+  overflow-x: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(0);
+}

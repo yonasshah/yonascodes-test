@@ -2,22 +2,22 @@
 
 # Build settings
 [build]
-  # This tells Netlify to build the React app in portal/
+  # This command builds the React app and then uses your custom script 
+  # to move the files into the correct place for the main site.
   command = "cd portal && npm install && npm run build"
-  # The portal build output goes to portal/build
+  # The directory containing your static index.html and the new portal/ folder
   publish = "public"
-  # Functions directory for Netlify Functions (optional for now)
   functions = "netlify/functions"
 
 # Redirect rules
 [[redirects]]
-  # Serve portal React app
+  # This ensures React Router handles all sub-pages within the portal
   from = "/portal/*"
   to = "/portal/index.html"
   status = 200
 
 [[redirects]]
-  # API proxy (when you add Netlify Functions later)
+  # API proxy for Netlify Functions
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
@@ -30,3 +30,9 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[dev]
+  port = 8888          
+  publish = "public"   
+  targetPort = 3000    
+  framework = "#custom"
